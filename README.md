@@ -1,20 +1,21 @@
 # Feed Functions
 
-A collection of functions that I deploy to manipulate data feeds. Uses:
+A collection of Node endpoints that I deploy to manipulate data feeds.
 
-- Node 10
-- Express.js
-- Nodemon for Development
-- Docker
 
 ## Local Setup
 
-Coming soon
+- Clone this repo
+- Install dependencies: `npm i`
+- Run the dev server: `npm run dev`
+
 
 ## Endpoints
 
 Coming soon
 
-## Testing 
 
-Coming soon
+## Testing & Linting
+
+- Run tests: `npm test`
+- Run prettier: `npm run prettier`
