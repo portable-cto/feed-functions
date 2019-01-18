@@ -1,15 +1,13 @@
-# Node JS boilerplate with Docker
+# Feed Functions
 
-- Simple Web Server
-- MongoDB database (You can change this in the docker-compose (2) file)
+A collection of functions that I deploy to manipulate data feeds. Uses:
+
+- Node 10
+- Express.js
 - Nodemon for Development
-
-## Requirements
-
 - Docker
-- Node 10 and npm 5 (You can change this in the Dockerfile (1) image file)
 
-## Installation
+## Local Setup
 
 1. Clone repository
 
@@ -40,8 +38,6 @@ Another example:
 
 (The last argument is the command)
 
-## Configuration files
+## Endpoints
 
-1. Dockerfile: Docker image
-2. docker-compose.yml: Docker services
-3. package.json: npm scripts
+Coming soon

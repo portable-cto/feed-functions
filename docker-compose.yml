@@ -1,14 +1,9 @@
 version: '3.3'
 services:
-  db:
-    image: mongo
   node_basic:
-    image: gmoralesc/node_basic
     build: .
     ports:
       - 3000:3000
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-    depends_on: 
-      - db
