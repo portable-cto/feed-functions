@@ -2,6 +2,7 @@ const express = require('express');
 const router = new express.Router();
 const { URL } = require('url');
 const fetch = require('node-fetch');
+const logger = require("logops");
 
 let auth;
 
@@ -38,7 +39,7 @@ async function run(url) {
   };
 }
 
-router.get('/', function (req, res) {
+router.get('/', function (req, res, next) {
   auth = req.query.thumb_api_key;
   run(req.query.url)
     .then(images => {

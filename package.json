@@ -16,6 +16,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-logging": "^1.1.1",
+    "feed": "^2.0.2",
     "logops": "^2.1.0",
     "node-fetch": "^2.3.0",
     "rss-to-email": "^0.8.0",

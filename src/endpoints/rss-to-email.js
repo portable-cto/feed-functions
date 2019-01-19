@@ -8,9 +8,7 @@ router.post('/', function (req, res, next) {
   const rssToEmail = RssToEmail(config);
   rssToEmail.getEmail(config.format || 'html')
     .then(email => {
-      res.writeHead(200, {
-        'Content-Type': 'text/html ',
-      });
+      res.writeHead(200, {'Content-Type': 'text/html '});
       res.end(email);
     }).catch(error => {
       logger.error(error);
