@@ -1,8 +1,7 @@
-const express = require("express");
+const express = require('express');
 const router = new express.Router();
 
-// Ping endpoint
-router.get("/", (req, res) => {
+router.get('/', function (req, res) {
   res.json({ message: "API is up." });
 });
 
