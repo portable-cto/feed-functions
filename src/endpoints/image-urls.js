@@ -1,15 +1,12 @@
 const express = require('express');
 const router = new express.Router();
-
-/*
 const { URL } = require('url');
 const fetch = require('node-fetch');
+
 let auth;
 
 function getScreenshot(urlObject) {
-  const baseUrl = 'https://image.thum.io/get/auth/' + auth + '/';
-
-  return baseUrl + urlObject.origin;
+  return auth ? 'https://image.thum.io/get/auth/' + auth + '/' + urlObject.origin : undefined;
 }
 
 async function getLogo(urlObject) {
@@ -19,9 +16,9 @@ async function getLogo(urlObject) {
     return baseUrl + urlObject.origin;
   } else if (await fetch(baseUrl + urlObject.host).then(res => res.ok)) {
     return baseUrl + urlObject.host;
-  } else {
-    return undefined;
   }
+
+  return undefined;
 }
 
 function getUrlObject(url) {
@@ -40,16 +37,17 @@ async function run(url) {
     url,
   };
 }
-module.exports = function(context, cb) {
-  auth = context.secrets.THUM_API_KEY
-  run(context.query.url)
-    .then(res => cb(null, res))
-    .catch(err => cb(err));
-};
- */
 
 router.get('/', function (req, res) {
-  res.json({ message: "RSS to Email is up." });
+  auth = req.query.thumb_api_key;
+  run(req.query.url)
+    .then(images => {
+      res.json(images);
+    })
+    .catch(error => {
+      logger.error(error);
+      next(error);
+    });
 });
 
 module.exports = router;

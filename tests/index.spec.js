@@ -52,4 +52,16 @@ describe("The API is running", () => {
       expect(result.statusCode).toBe(200);
     });
   });
+
+  describe("GET /image-urls", () => {
+    it("returns json response", async () => {
+      const result = await got("/image-urls", {
+        baseUrl,
+        query: { url: "https://github.com/" }
+      });
+
+      expect(result.body).toContain("logo.clearbit.com");
+      expect(result.statusCode).toBe(200);
+    });
+  });
 });
