@@ -64,4 +64,17 @@ describe("The API is running", () => {
       expect(result.statusCode).toBe(200);
     });
   });
+
+  describe("GET /extract-tweet-data", () => {
+    it("returns json response", async () => {
+      const result = await got("/extract-tweet-data", {
+        baseUrl,
+        query: { text: "A text that contains a @mention of a user and a #hashtag." }
+      });
+
+      expect(JSON.parse(result.body).tweeters.includes("@mention")).toBeTruthy();
+      expect(JSON.parse(result.body).hashtags.includes("#hashtag")).toBeTruthy();
+      expect(result.statusCode).toBe(200);
+    });
+  });
 });

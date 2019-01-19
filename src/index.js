@@ -15,6 +15,7 @@ app.use(expressLogging(logger));
 app.use("/", require("./endpoints/ping"));
 app.use("/rss-to-email", require("./endpoints/rss-to-email"));
 app.use("/image-urls", require("./endpoints/image-urls"));
+app.use("/extract-tweet-data", require("./endpoints/extract-tweet-data"));
 
 // Start the process
 const server = app.listen(process.env.PORT || 3000);
