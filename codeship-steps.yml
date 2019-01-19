@@ -3,6 +3,11 @@
   command: npm run ci
 - name: pushing
   service: feed_functions
+  tag: master
   type: push
   image_name: karllhughes/feed-functions
   encrypted_dockercfg_path: dockercfg.encrypted
+- name: deploying
+  service:
+  tag: master
+  command: /app/deploy.sh
