@@ -51,7 +51,7 @@ router.get('/', function (req, res, next) {
       });
 
       res.writeHead(200, {'Content-Type': 'application/xml'});
-      res.end(feed.atom1());
+      res.end(feed.rss2());
     }).catch(error => {
       logger.error(error);
       next(error);
