@@ -1,0 +1,3 @@
+- name: testing
+  service: feed_functions
+  command: npm run ci
