@@ -1,3 +1,8 @@
 - name: testing
   service: feed_functions
   command: npm run ci
+- name: pushing
+  service: feed_functions
+  type: push
+  image_name: karllhughes/feed-functions
+  encrypted_dockercfg_path: dockercfg.encrypted

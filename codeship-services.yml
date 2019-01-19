@@ -1,2 +1,4 @@
 feed_functions:
-  build: .
+  build:
+    image: karllhughes/feed-functions
+    dockerfile: Dockerfile
