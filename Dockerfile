@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 
 RUN mkdir src
 COPY src/ ./src
+COPY tests/ ./tests
 COPY package.json .
 COPY package-lock.json .
 RUN npm install
