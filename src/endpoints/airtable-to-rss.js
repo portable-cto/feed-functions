@@ -46,7 +46,7 @@ router.get('/', function (req, res, next) {
           description: record.fields.description,
           author: [{name: record.fields.name}],
           date: new Date(record.fields.created),
-          image: record.fields.image
+          image: record.fields.image ? record.fields.image[0].url : undefined,
         });
       });
 
