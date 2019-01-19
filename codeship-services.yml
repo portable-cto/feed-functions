@@ -3,8 +3,7 @@ feed_functions:
     image: karllhughes/feed-functions
     dockerfile: Dockerfile
 deployer:
-  build:
-    image: pstauffer/curl
-  volume:
-    .:/app
+  image: pstauffer/curl
+  volumes:
+    - .:/app
   encrypted_env_file: env.encrypted
