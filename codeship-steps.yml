@@ -8,6 +8,6 @@
   image_name: karllhughes/feed-functions
   encrypted_dockercfg_path: dockercfg.encrypted
 - name: deploying
-  service:
+  service: deployer
   tag: master
   command: /app/deploy.sh
