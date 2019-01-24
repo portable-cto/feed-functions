@@ -5,6 +5,18 @@ const {Feed} = require('feed');
 const querystring = require('querystring');
 const logger = require("logops");
 
+const getAirtableUrl = (query) => {
+  return 'https://api.airtable.com/v0/' +
+    query.baseId + '/' +
+    query.table + '?' +
+    querystring.stringify({
+      api_key: query.api_key,
+      maxRecords: '20',
+      view: query.view,
+      sort: query.sort || [{field: "created", direction: "desc"}]
+    });
+};
+
 router.get('/', function (req, res, next) {
   if (!(
     req.query.api_key &&
@@ -16,15 +28,7 @@ router.get('/', function (req, res, next) {
   }
 
   // Generate Airtable URL
-  const airtableUrl = 'https://api.airtable.com/v0/' +
-    req.query.baseId + '/' +
-    req.query.table + '?' +
-    querystring.stringify({
-      api_key: req.query.api_key,
-      maxRecords: '20',
-      view: req.query.view,
-      sort: req.query.sort || [{field: "created", direction: "desc"}]
-    });
+  const airtableUrl = getAirtableUrl(req.query);
   const fullUrl = req.protocol + '://' + req.get('host') + '/airtable-to-rss';
 
   // Generate new feed
