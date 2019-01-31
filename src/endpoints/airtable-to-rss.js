@@ -2,18 +2,20 @@ const express = require('express');
 const router = new express.Router();
 const fetch = require('node-fetch');
 const {Feed} = require('feed');
-const querystring = require('querystring');
+const qs = require('qs');
 const logger = require("logops");
 
 const getAirtableUrl = (query) => {
+  const sort = query.sort ? query.sort :
+    [{field: "created", direction: "desc"}];
   return 'https://api.airtable.com/v0/' +
     query.baseId + '/' +
     query.table + '?' +
-    querystring.stringify({
+    qs.stringify({
       api_key: query.api_key,
       maxRecords: '20',
       view: query.view,
-      sort: query.sort || [{field: "created", direction: "desc"}]
+      sort,
     });
 };
 
