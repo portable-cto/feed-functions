@@ -23,6 +23,6 @@ Coming soon
 
 ## Manually Deploying
 
-- Build the Docker image: `docker build -t karllhughes/feed-functions`
+- Build the Docker image: `docker build -t karllhughes/feed-functions .`
 - Push to Docker Hub: `docker push karllhughes/feed-functions`
 - Pull and run the container: `docker run -p 3000:3000 -v $(pwd):/usr/src/app -d --rm --name feed-functions karllhughes/feed-functions`
